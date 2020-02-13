@@ -2,17 +2,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<groupId>rmipoc</groupId>
 	<artifactId>server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>PoC RMI - server definition</name>
 	<description>PoC RMI - server definition</description>
+	<packaging>jar</packaging>
 
-	<parent>
-		<groupId>rmipoc</groupId>
-		<artifactId>rmipoc</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-
-	<build>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties><build>
 
 		<pluginManagement>
 			<plugins>
@@ -44,5 +45,5 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
-	
+
 </project>
