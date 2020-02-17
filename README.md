@@ -1,6 +1,6 @@
 # rmi-example
 
-This repository is an example of java RMI communication. It consists in three sub projects
+This repository is an example of java RMI communication. It consists of three sub projects
 
 - server: the server folder contains the server maven project 
 - client: the client folder contains the client maven project 
