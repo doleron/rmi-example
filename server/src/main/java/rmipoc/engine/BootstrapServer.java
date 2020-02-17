@@ -41,7 +41,7 @@ public class BootstrapServer {
 		 * replyPort = 0 means for "any port" and RMI will choose a random port such as
 		 * 41444, 60402, etc
 		 */
-		final int replyPort = port;
+		final int replyPort = 0;
 
 		/*
 		 * this property can be passed as a VM parameter. For instance

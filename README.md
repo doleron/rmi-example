@@ -64,6 +64,40 @@ Since we (probably) want run the example in two different machines, some steps m
     cd target 
     java -jar client-0.0.1-SNAPSHOT-jar-with-dependencies.jar
     
-The application should output something like:
+If everything goes fine you will get a output like:
 
-    MessageService running on port 1043
+    Server replied: "I've received: Hello Server, I'm the client."
+    
+If you get Connection refused exceptions or other connection issues, it is likely you have a different network setting than the code is configured with. If this is you case, please check the following sections.
+
+## Setting IP address, port and object name
+
+RMI runs over TCP/IP. Hence, to the two (probably) remote process to communicate the client program must know the IP and port parameters in order to find the server.
+
+In real world application these kind of setting is provided by a configuration file. For the sake of simplicity, in this example I have hard coded these parameters in both server and client. Be aware that this is never done in a production application for obvious reasons.
+
+### Changing the server settings
+
+In the beginning of main method of class `rmipoc.engine.BootstrapServer` one can find the following code:
+
+    final String resolutionIp = "192.168.1.80";
+	 final int port = 1043;
+	 final String objectName = "MessageService";
+
+Change these parameters to match your environment.
+
+## Using RMI through a firewall.
+
+RMI uses a multi port strategy to allow several concurrent connections to the server object. This can cause connection issues if there is a firewall or other port policy denying TCP connections between your RMI client and server. Considering that there is a single port to allow the communication, you must to indicate to RMI to use this single port instead of the multi port approach. This can be done by changing?
+
+    final int replyPort = 0;
+    
+The `replyPort` variable is used in the stub creation:
+
+    MessageService stub = (MessageService) UnicastRemoteObject.exportObject(serverObject, replyPort);
+
+`replyPort = 0` indicate to RMI to use the multiport strategy. However, if your firewall allows connections only on a single port, for instance port 1043, change the line to:
+
+    final int replyPort = 1043;
+
+
