@@ -64,11 +64,11 @@ Since we (probably) want run the example in two different machines, some steps m
     cd target 
     java -jar client-0.0.1-SNAPSHOT-jar-with-dependencies.jar
     
-If everything goes fine you will get a output like:
+If everything goes fine you will get an output like:
 
     Server replied: "I've received: Hello Server, I'm the client."
     
-If you get Connection refused exceptions or other connection issues, it is likely you have a different network setting than the code is configured with. If this is you case, please check the following sections.
+If connection refused exceptions or other connection issues are raised, it is likely you have a different network setting than the code is configured out with. If this is your case, please check the following sections.
 
 ## Setting IP address, port and object name
 
