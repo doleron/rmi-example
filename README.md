@@ -81,10 +81,12 @@ In real world application these kind of setting is provided by a configuration f
 In the beginning of main method of class `rmipoc.engine.BootstrapServer` one can find the following code:
 
     final String resolutionIp = "192.168.1.80";
-	 final int port = 1043;
-	 final String objectName = "MessageService";
+    final int port = 1043;
+    final String objectName = "MessageService";
 
 Change these parameters to match your environment.
+
+NOTE that in real production solutions these settings are not hardcoded in the program code itself. Very often these parameters are informed by a text file or as system properties in the application call.
 
 ## Using RMI through a firewall.
 
